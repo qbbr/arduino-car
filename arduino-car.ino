@@ -187,41 +187,41 @@ void runCmd(char c) {
 /* Motor */
 
 void motorLeftForward() {
-  digitalWrite(IN1_PIN, HIGH);
-  digitalWrite(IN2_PIN, LOW);
-}
-
-void motorLeftBackward() {
-  digitalWrite(IN1_PIN, LOW);
-  digitalWrite(IN2_PIN, HIGH);
-}
-
-void motorLeftStop() {
-  digitalWrite(IN1_PIN, LOW);
-  digitalWrite(IN2_PIN, LOW);
-}
-
-void motorRightForward() {
   digitalWrite(IN3_PIN, HIGH);
   digitalWrite(IN4_PIN, LOW);
 }
 
-void motorRightBackward() {
+void motorLeftBackward() {
   digitalWrite(IN3_PIN, LOW);
   digitalWrite(IN4_PIN, HIGH);
 }
 
-void motorRightStop() {
+void motorLeftStop() {
   digitalWrite(IN3_PIN, LOW);
   digitalWrite(IN4_PIN, LOW);
 }
 
+void motorRightForward() {
+  digitalWrite(IN1_PIN, HIGH);
+  digitalWrite(IN2_PIN, LOW);
+}
+
+void motorRightBackward() {
+  digitalWrite(IN1_PIN, LOW);
+  digitalWrite(IN2_PIN, HIGH);
+}
+
+void motorRightStop() {
+  digitalWrite(IN1_PIN, LOW);
+  digitalWrite(IN2_PIN, LOW);
+}
+
 void setMotorLeftSpeed(int speed) {
-  analogWrite(ENA_PIN, speed);
+  analogWrite(ENB_PIN, speed);
 }
 
 void setMotorRightSpeed(int speed) {
-  analogWrite(ENB_PIN, speed);
+  analogWrite(ENA_PIN, speed);
 }
 
 void setMotorSpeed(int speed) {
@@ -299,13 +299,13 @@ void carBackwardRight() {
 }
 
 void carRotateLeft() {
-  motorLeftForward();
-  motorRightBackward();
+  motorLeftBackward();
+  motorRightForward();
 }
 
 void carRotateRight() {
-  motorLeftBackward();
-  motorRightForward();
+  motorLeftForward();
+  motorRightBackward();
 }
 
 void carStop() {
