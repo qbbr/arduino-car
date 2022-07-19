@@ -7,8 +7,8 @@
 #include <Servo.h>
 
 // HC-06 via RX/TX 0pin/1pin
-#define QBBR_CAR_INFO "QBBR Car 02.07.2020"
-#define DEBUG true
+#define QBBR_CAR_INFO "QBBR Car 19.07.2022"
+#define DEBUG false
 
 // L293N
 #define ENA_PIN 3 // right motor
@@ -158,7 +158,7 @@ void runCmd(char c) {
       setMotorSpeed(255);
       break;
     case CMD_GET_SPEED:
-      Serial.print("car speed: ");
+      Serial.print("$speed: ");
       Serial.println(carSpeed);
       break;
     case CMD_SERVO_LEFT:
@@ -171,7 +171,7 @@ void runCmd(char c) {
       servo.write(SERVO_ANGLE_RIGHT);
       break;
     case CMD_GET_DISTANCE:
-      Serial.print("distance: ");
+      Serial.print("$distance: ");
       Serial.println(getDistance());
       break;
     default:
